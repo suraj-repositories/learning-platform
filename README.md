@@ -37,10 +37,3 @@ bun dev
 Design and code are completely written by TailGrids and UIdeck design and development team.  
 
 
-## License
-
- - Design and Code is Copyright &copy; [UIdeck](https://uideck.com/)
- - Licensed under [MIT]
- - Distributed by [ThemeWagon](https://themewagon.com)
-
-

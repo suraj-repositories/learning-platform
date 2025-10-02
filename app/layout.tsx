@@ -1,11 +1,8 @@
-"use client";
 
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import ScrollToTop from "@/components/ScrollToTop";
 import { Inter } from "next/font/google";
 import "node_modules/react-modal-video/css/modal-video.css";
 import "../styles/index.css";
+import ClientLayoutWrapper from "./ClientLayoutWrapper"; // Import the new component
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,22 +13,19 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
       <head />
 
       <body className={`bg-[#FCFCFC] dark:bg-black ${inter.className}`}>
-        <Providers>
-          <Header />
+        {/*
+          Move Header, Footer, and Providers into ClientLayoutWrapper.
+          The wrapper will decide whether to show them based on the route.
+        */}
+        <ClientLayoutWrapper>
           {children}
-          <Footer />
-          <ScrollToTop />
-        </Providers>
+        </ClientLayoutWrapper>
       </body>
     </html>
   );
 }
 
-import { Providers } from "./providers";
+// NOTE: You can remove the unused "import { Providers } from "./providers";" here

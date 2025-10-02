@@ -21,15 +21,21 @@ const nextConfig = {
       },
     ],
   },
-
-  // workspace root fix
+  // Workspace root fix
   outputFileTracingRoot: path.join(__dirname),
 
-  // cross origin dev request fix: move here
-  allowedDevOrigins: [
-    "http://localhost:3000",
-    "http://192.168.1.19:3000",
-  ],
+  // Cross-origin dev request fix
+  allowedDevOrigins: ["http://localhost:3000", "http://192.168.1.19:3000"],
+
+  // SVGR support for React component imports of SVGs
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.[jt]sx?$/,
+      use: ["@svgr/webpack"],
+    });
+    return config;
+  },
 };
 
 module.exports = nextConfig;
