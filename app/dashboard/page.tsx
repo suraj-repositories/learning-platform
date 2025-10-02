@@ -1,9 +1,10 @@
-import Home from "./pages/Dashboard/Home";
+// import Home from "./pages/Dashboard/Home";
 
 export default function DashboardHome() {
   return (
    <>
-    <Home />
+   <h2>Hello</h2>
+    {/* <Home /> */}
    </>
   );
 }
